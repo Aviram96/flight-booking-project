@@ -88,5 +88,6 @@ Unit and integration tests written using Jest.
 Example test file: tests/routes.test.js.
 Frontend:
 End-to-End tests implemented using Cypress.
+npm install cypress --save-dev
+npx cypress open
 
->>>>>>> e75406006e179f02d5132c1d148c77c4242a55b0
