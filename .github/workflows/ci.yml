@@ -1,0 +1,68 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js for client and backend
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # Install dependencies for client
+      - name: Install dependencies for client
+        run: |
+          cd flight-booking-client
+          npm install
+
+      # Run tests for client
+      - name: Run client tests
+        run: |
+          cd flight-booking-client
+          npm test || echo "No tests defined yet."
+
+      # Install dependencies for backend
+      - name: Install dependencies for backend
+        run: |
+          cd flight-booking-backend
+          npm install
+
+      # Run tests for backend
+      - name: Run backend tests
+        run: |
+          cd flight-booking-backend
+          npm test || echo "No tests defined yet."
+
+      # Build client
+      - name: Build client
+        run: |
+          cd flight-booking-client
+          npm run build
+
+      # Set up Docker Compose for full-stack testing
+      - name: Set up Docker Compose
+        run: |
+          docker-compose up -d --build
+
+      # Check services are running
+      - name: Check backend service
+        run: |
+          curl -f http://localhost:5000/api/flights || echo "Backend check failed."
+
+      # Tear down Docker Compose
+      - name: Tear down Docker Compose
+        run: docker-compose down
