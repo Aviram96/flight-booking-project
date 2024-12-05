@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="flights-list">
+    <h3>Available Flights</h3>
+    <table>
+      <tr>
+        <th>Departure</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let flight of flights">
+        <td>{{ flight.departure }}</td>
+        <td>{{ flight.destination }}</td>
+        <td>{{ flight.date }}</td>
+        <td>{{ flight.price }}</td>
+        <td>
+          <button (click)="bookFlight(flight._id)">Book Now</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="add-flight">
+    <h3>Add a Flight</h3>
+    <form (submit)="fetchFlights()">
+      <input type="text" placeholder="Departure" [(ngModel)]="departure" />
+      <input type="text" placeholder="Destination" [(ngModel)]="destination" />
+      <input type="date" placeholder="Date" [(ngModel)]="date" />
+      <button type="button" (click)="fetchFlights()">Search Flights</button>
+    </form>
+  </div>
+
+  <div class="bookings-list">
+    <h3>My Bookings</h3>
+    <ul>
+      <li *ngFor="let booking of bookings">
+        {{ booking.flight.departure }} to {{ booking.flight.destination }} on {{ booking.flight.date }}
+      </li>
+    </ul>
+  </div>
+</div>

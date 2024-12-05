@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+
+    .flights-list,
+    .add-flight,
+    .bookings-list {
+        border: 1px solid #ddd;
+        padding: 20px;
+        flex: 1;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background: #f0f0f0;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        input,
+        button {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
