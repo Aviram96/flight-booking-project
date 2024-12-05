@@ -91,3 +91,11 @@ End-to-End tests implemented using Cypress.
 npm install cypress --save-dev
 npx cypress open
 
+Continuous Integration and Deployment (CI/CD)
+Overview
+This project includes a CI/CD pipeline configured using GitHub Actions. The pipeline automates:
+
+Running backend and frontend tests.
+Ensuring the code is production-ready by validating builds.
+Deploying to staging or production environments.
+
