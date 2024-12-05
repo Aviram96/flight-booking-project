@@ -1,46 +1,46 @@
-# services:
-#   mongo:
-#     image: mongo
-#     ports:
-#       - "27017:27017"
-#     environment:
-#       MONGO_INITDB_DATABASE: flightBooking
-
-version: '3.8'
-
 services:
   mongo:
     image: mongo
-    container_name: flight-booking-mongo
     ports:
       - "27017:27017"
     environment:
       MONGO_INITDB_DATABASE: flightBooking
-    networks:
-      - flight-network
 
-  backend:
-    build:
-      context: ./flight-booking-backend
-    container_name: flight-booking-backend
-    ports:
-      - "5000:5000"
-    environment:
-      - MONGO_URL=mongodb://mongo:27017/flightBooking
-    depends_on:
-      - mongo
-    networks:
-      - flight-network
+# version: '3.8'
 
-  frontend:
-    build:
-      context: ./flight-booking-client
-    container_name: flight-booking-client
-    ports:
-      - "4200:80"
-    networks:
-      - flight-network
+# services:
+#   mongo:
+#     image: mongo
+#     container_name: flight-booking-mongo
+#     ports:
+#       - "27017:27017"
+#     environment:
+#       MONGO_INITDB_DATABASE: flightBooking
+#     networks:
+#       - flight-network
 
-networks:
-  flight-network:
-    driver: bridge
+#   backend:
+#     build:
+#       context: ./flight-booking-backend
+#     container_name: flight-booking-backend
+#     ports:
+#       - "5000:5000"
+#     environment:
+#       - MONGO_URL=mongodb://mongo:27017/flightBooking
+#     depends_on:
+#       - mongo
+#     networks:
+#       - flight-network
+
+#   frontend:
+#     build:
+#       context: ./flight-booking-client
+#     container_name: flight-booking-client
+#     ports:
+#       - "4200:80"
+#     networks:
+#       - flight-network
+
+# networks:
+#   flight-network:
+#     driver: bridge

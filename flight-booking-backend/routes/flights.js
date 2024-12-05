@@ -1,11 +1,11 @@
 const express = require('express');
-const { Flight, Booking } = require('../models'); // ייבוא של המודלים
+const Flight = require('../models/Flight');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
-        const flights = await Flight.find(); +
-            res.status(200).json(flights);
+        const flights = await Flight.find();
+        res.status(200).json(flights);
     } catch (error) {
         console.error('Error fetching flights:', error.message);
         res.status(500).json({ error: error.message });

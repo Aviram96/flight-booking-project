@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Flight = require('./models/Flight');
+const Flight = require('../models/flight');
 
 const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/flightBooking';
 

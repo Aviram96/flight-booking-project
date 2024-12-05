@@ -1,5 +1,6 @@
 const express = require('express');
-const { Booking, Flight } = require('../models/index'); // ייבוא המודלים
+const Booking = require('../models/Booking');
+const Flight = require('../models/Flight');
 
 const router = express.Router();
 
@@ -58,7 +59,7 @@ router.delete('/:id', async (req, res) => {
         }
 
         // מחיקת הזמנה
-        await booking.destroy();
+        await Booking.findByIdAndDelete(id);
         res.status(200).json({ message: 'Booking deleted successfully' });
     } catch (error) {
         console.error('Error deleting booking:', error);
