@@ -7,17 +7,16 @@ The Flight Booking Project is a web application designed to allow users to searc
 
 **Table of Contents**
 1. [Tech Stack](#tech-stack)
-2. [Project Structure](#project-structure)
-3. [Setup and Installation](#setup-and-installation)
-4. [Development Stages](#development-stages)
+2. [Setup and Installation](#setup-and-installation)
+3. [Development Stages](#development-stages)
     - Backend
     - Frontend
     - Testing
-5. [Docker Setup](#docker-setup)
-6. [Testing](#testing)
+4. [Docker Setup](#docker-setup)
+5. [Testing](#testing)
     - Backend Unit & Integration Tests
     - Frontend End-to-End Tests
-7. [Deployment](#deployment)
+6. [Deployment](#deployment)
 
 ---
 
