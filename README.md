@@ -52,3 +52,38 @@ The Flight Booking Project is a web application designed to allow users to searc
 ```bash
 git clone https://github.com/Aviram96/flight-booking-project.git
 cd flight-booking-project
+
+Backend Installation:
+cd flight-booking-backend
+npm install
+npm install @angular/common
+npm install karma-chrome-launcher karma-jasmine karma karma-cli --save-dev
+npm start
+
+Run database seeding:
+node seed.js
+
+
+Frontend Installation
+
+cd flight-booking-frontend
+npm install
+npm install @angular/common
+npm install karma-chrome-launcher karma-jasmine karma karma-cli --save-dev
+ng serve
+
+Development Stages
+Backend
+Created REST APIs for Flights and Bookings.
+Containerized the backend and database using Docker.
+Database seeding implemented using seed.js.
+Frontend
+Angular-based UI for flight search, booking, and management.
+Integrated with the backend APIs.
+Testing
+Backend:
+Unit and integration tests written using Jest.
+Example test file: tests/routes.test.js.
+Frontend:
+End-to-End tests implemented using Cypress.
+
